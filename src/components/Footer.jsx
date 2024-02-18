@@ -1,20 +1,24 @@
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
-import { gsap } from 'gsap';
-import { useEffect,useRef} from "react";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
 
 const Footer = () => {
-    useEffect(() => {
+ const line= useRef(null)
   
-       
-    }, [])
+ useEffect(() => {
+    gsap.to(line, {width:"100px"})
     
+  }, [])
+  
   return (
-    <section className="flex justify-around">
-      <div className="flex flex-col">
+    <section className="flex justify-around mt-5 footer">
+      <div className="flex flex-col gap-2">
         <h3 className="footer-title">Services</h3>
-        <div
+        <div ref={line}
           className="mb-2 footer-line"
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}
         ></div>
@@ -23,7 +27,7 @@ const Footer = () => {
         <a href="#">Brandings</a>
         <a href="#">Offline</a>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-2">
         <h3 className="footer-title">About</h3>
         <div
           className="mb-2 footer-line"
@@ -34,8 +38,8 @@ const Footer = () => {
         <a href="#">Team</a>
         <a href="#">Careers</a>
       </div>
-      <div className="flex flex-col">
-        <h3>General</h3>
+      <div className="flex flex-col gap-2">
+        <h3 className="footer-title">General</h3>
         <div
           className="mb-2 footer-line"
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}
@@ -52,9 +56,16 @@ const Footer = () => {
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}
         ></div>
         <div className="flex gap-3">
-          <FaInstagramSquare />
-          <FaTwitter />
-          <FaFacebookSquare />
+          <i>
+            {" "}
+            <FaInstagramSquare />
+          </i>
+          <i>
+            <FaTwitter />
+          </i>
+          <i>
+            <FaFacebookSquare />
+          </i>
         </div>
       </div>
     </section>
