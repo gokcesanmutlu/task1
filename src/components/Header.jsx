@@ -21,15 +21,7 @@ function OffcanvasExample() {
               />
               SupremeShop
             </Navbar.Brand>
-            <Form className="d-flex ">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
+            
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -43,6 +35,15 @@ function OffcanvasExample() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Form className="d-flex "  style={{marginRight:"150px"}}>
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button variant="outline-success">Search</Button>
+                </Form>
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/about">About</Nav.Link>
                   <NavDropdown

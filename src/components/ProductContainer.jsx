@@ -21,20 +21,17 @@ const ProductContainer = () => {
     getProducts();
   }, []);
 
+  
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
-  };
-
- 
   return (
     <>
       <div className="px-32 py-16 product-modal">
         <div >
-        <h3>Products</h3>
-        <div className="flex flex-wrap gap-0">
-          {products?.map((product) => <ProductCard product={product} />)}
-        </div>
+          <h3 className="font-semibold text-gray-600">PRODUCT</h3>
+          <div className="line h-[2px] w-[75px] bg-slate-500 "></div>
+          <div className="flex flex-wrap gap-0">
+            {products?.map((product) => <ProductCard product={product} />)}
+          </div>
         </div>
         {selectedProduct && <Modal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
       </div>
