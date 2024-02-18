@@ -3,10 +3,21 @@ import ProductCard from "./ProductCard";
 import axios from "axios";
 import Modal from "./Modal"
 
-const ProductContainer = () => {
 
-  const [selectedProduct, setSelectedProduct] = useState(true);
+const ProductContainer = () => {
+const [isModelOpen,setIsModalOpen]=useState(true)
   const [products, setProducts] = useState([]);
+const [detailId, setDetailId]= useState(null)
+
+  const openModal = (id) => {
+    setIsModalOpen(true);
+    setDetailId(id);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    // setDetailId(null);
+  };
 
   useEffect(() => {
     const getProducts = async () => {
@@ -21,7 +32,6 @@ const ProductContainer = () => {
     getProducts();
   }, []);
 
-  
 
   return (
     <>
@@ -30,10 +40,11 @@ const ProductContainer = () => {
           <h3 className="font-semibold text-gray-600">PRODUCT</h3>
           <div className="line h-[2px] w-[75px] bg-slate-500 "></div>
           <div className="flex flex-wrap gap-0">
-            {products?.map((product) => <ProductCard product={product} />)}
+            {products?.map((product) => <ProductCard product={product} openModal={openModal} />)}
           </div>
         </div>
-        {selectedProduct && <Modal product={selectedProduct} onClose={() => setSelectedProduct(null)} />}
+{isModelOpen && <Modal closeModal={closeModal}/>}
+        
       </div>
     </>
   );

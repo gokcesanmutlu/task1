@@ -1,9 +1,14 @@
+import axios from 'axios';
 import React from 'react'
 
-const Modal = () => {
+const Modal = ({ product, closeModal}) => {
+  // axios.get(`./db.json?id=${product.id}`)
+  //   .then(response => console.log(response))
+  //   .catch(error => console.error('Error:', error));
+
   return (
     <div className="card p-8" >
-      <button className="dismiss" type="button">×</button>
+      <button onClick={()=>closeModal()} className="dismiss" type="button">×</button>
       <div className="product">
         <img style={{ width: "300px" }} src="ürün2.jpg" alt="" />
         <h4>Product Name</h4>
