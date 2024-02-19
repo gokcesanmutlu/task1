@@ -8,11 +8,16 @@ import { useState } from "react";
 export default function App() {
   const [basket, setBasket] = useState([])
 
+  const addToBasket = (product) => {
+    const newBasket = [...basket, product];
+    setBasket(newBasket);
+  };
+
   return (
     <>
-      <Header basket={basket} setBasket={setBasket}  />
+      <Header basket={basket} setBasket={setBasket} addToBasket={addToBasket} />
       <Banner />
-      <ProductContainer basket={basket} setBasket={setBasket} />
+      <ProductContainer basket={basket} setBasket={setBasket} addToBasket={addToBasket} />
       <Footer />
       <Coppyright />
     </>

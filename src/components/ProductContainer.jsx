@@ -3,7 +3,7 @@ import axios from "axios";
 import ProductCard from "./ProductCard";
 import Modal from "./Modal"
 
-const ProductContainer = ({setBasket, basket}) => {
+const ProductContainer = ({ setBasket, basket, addToBasket }) => {
   const [isModelOpen, setIsModalOpen] = useState(true)
   const [products, setProducts] = useState([]);
   const [detailId, setDetailId] = useState(null)
@@ -31,8 +31,6 @@ const ProductContainer = ({setBasket, basket}) => {
     getProducts();
   }, []);
 
-
-
   return (
     <>
       <div className="px-32 py-16 product-modal">
@@ -43,8 +41,7 @@ const ProductContainer = ({setBasket, basket}) => {
             {products?.map((product) => <ProductCard key={product.id} product={product} openModal={openModal} />)}
           </div>
         </div>
-        {isModelOpen && <Modal closeModal={closeModal} setIsModalOpen={setIsModalOpen} detailId={detailId} setBasket={setBasket} basket={basket}/>}
-
+        {isModelOpen && <Modal addToBasket={addToBasket}  closeModal={closeModal} setIsModalOpen={setIsModalOpen} detailId={detailId} setBasket={setBasket} basket={basket} />}
       </div>
     </>
   );

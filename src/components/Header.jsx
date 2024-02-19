@@ -9,7 +9,6 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 function OffcanvasExample() {
 
-
   return (
     <>
       {["xl"].map((expand) => (
@@ -62,16 +61,16 @@ function OffcanvasExample() {
                     <NavDropdown.Item href="#action5">
                       Campaigns3
                     </NavDropdown.Item>
-                    
                   </NavDropdown>
                   <Nav.Link href="/">CART</Nav.Link>
                 </Nav>
-               
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
       ))}
+
+      {/* Colorful line -under the nav- */}
       <div className="d-flex">
         <div
           style={{ height: "3px", width: "35vw", backgroundColor: "#F01D7C" }}

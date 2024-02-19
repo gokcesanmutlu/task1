@@ -1,4 +1,5 @@
 const ProductCard = ({ product, openModal }) => {
+
   return (
     <div className=" p-4">
       <div className="card w-[175px]">
