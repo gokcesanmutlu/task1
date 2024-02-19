@@ -22,11 +22,11 @@ const Modal = ({ detailId, closeModal }) => {
     <div className="card p-8" >
      <button onClick={closeModal} className="dismiss" type="button">×</button>
       <div className="product">
-        <img style={{ width: "300px", height:"220px" }} src={specific.img} alt="" />
+        <img style={{ width: "300px", height:"220px" }} src={specific? specific.img: "logoo.jpg"} alt="" />
         <div className="flex flex-column gap-2 p-2 text-justify items-center">
-        <h4>{specific.name}</h4>
-        <p>{specific.description}</p>
-        <p>${specific.price}</p>
+        <h4>{specific? specific.name : "Choose your favorite one!"}</h4>
+        <p>{specific? specific.description : "with Best Quality"}</p>
+        <p>${specific? specific.price : "with Best Price" }</p>
         </div>
         <div className="actions">
           <button  className="history" type="button">Add to Basket</button>
