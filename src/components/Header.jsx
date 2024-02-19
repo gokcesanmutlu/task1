@@ -1,3 +1,4 @@
+
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -6,8 +7,13 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-
-function OffcanvasExample() {
+function OffcanvasExample({basket,setBasket}) {
+  
+  function addToBasket(product) {
+    setBasket([...basket, product]);
+    console.log("basket")
+  };
+console.log(basket)
   return (
     <>
       {["xl"].map((expand) => (

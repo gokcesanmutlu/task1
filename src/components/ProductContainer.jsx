@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
 import axios from "axios";
+import ProductCard from "./ProductCard";
 import Modal from "./Modal"
 
-
-const ProductContainer = () => {
-const [isModelOpen,setIsModalOpen]=useState(true)
+const ProductContainer = ({setBasket, basket}) => {
+  const [isModelOpen, setIsModalOpen] = useState(true)
   const [products, setProducts] = useState([]);
-const [detailId, setDetailId]= useState(null)
+  const [detailId, setDetailId] = useState(null)
 
   const openModal = (id) => {
     setIsModalOpen(true);
@@ -16,7 +15,7 @@ const [detailId, setDetailId]= useState(null)
 
   const closeModal = () => {
     setIsModalOpen(false);
-    // setDetailId(null);
+    setDetailId(null);
   };
 
   useEffect(() => {
@@ -33,6 +32,7 @@ const [detailId, setDetailId]= useState(null)
   }, []);
 
 
+
   return (
     <>
       <div className="px-32 py-16 product-modal">
@@ -40,11 +40,11 @@ const [detailId, setDetailId]= useState(null)
           <h3 className="font-semibold text-gray-600">PRODUCT</h3>
           <div className="line h-[2px] w-[75px] bg-slate-500 "></div>
           <div className="flex flex-wrap gap-0">
-            {products?.map((product) => <ProductCard product={product} openModal={openModal} />)}
+            {products?.map((product) => <ProductCard key={product.id} product={product} openModal={openModal} />)}
           </div>
         </div>
-{isModelOpen && <Modal closeModal={closeModal}/>}
-        
+        {isModelOpen && <Modal closeModal={closeModal} setIsModalOpen={setIsModalOpen} detailId={detailId} setBasket={setBasket} basket={basket}/>}
+
       </div>
     </>
   );
