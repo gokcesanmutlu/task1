@@ -1,4 +1,5 @@
-
+import { SlBasket } from "react-icons/sl";
+import Basket from "./Basket";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -6,13 +7,25 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { useContext, useRef, useState } from "react";
+import { BasketContext } from './../context/basketContext';
+import { ProductContext } from "../context/productContext";
 
 function OffcanvasExample() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { basket, setBasket } = useContext(BasketContext);
+  const { query, setQuery } = useContext(ProductContext)
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    setQuery(e.target.value)
+    console.log(query)
+  }
 
   return (
     <>
       {["xl"].map((expand) => (
-        <Navbar  key={expand} expand={expand} className="bg-body-tertiary">
+        <Navbar key={expand} expand={expand} className="bg-body-tertiary">
           <Container fluid className="px-5">
             <Navbar.Brand className="flex gap-2" href="#">
               <img
@@ -22,7 +35,7 @@ function OffcanvasExample() {
               />
               SupremeShop
             </Navbar.Brand>
-            
+
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -36,15 +49,16 @@ function OffcanvasExample() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Form className="d-flex "  style={{marginRight:"150px"}}>
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
+                  <Form className="d-flex " style={{ marginRight: "150px" }}>
+                    <Form.Control
+                      type="search"
+                      placeholder="Search"
+                      className="me-2"
+                      aria-label="Search"
+                      onChange={handleChange}
+                    />
+                    <Button variant="outline-success" type="submit">Search</Button>
+                  </Form>
                   <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/about">About</Nav.Link>
                   <NavDropdown
@@ -62,7 +76,7 @@ function OffcanvasExample() {
                       Campaigns3
                     </NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link href="/">CART</Nav.Link>
+                 <button onClick={()=>setIsCartOpen(!isCartOpen)} className="ml-2"><SlBasket /></button>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -88,6 +102,8 @@ function OffcanvasExample() {
           style={{ height: "3px", width: "15vw", backgroundColor: "#3b2388" }}
         ></div>
       </div>
+
+      {isCartOpen && <Basket setIsCartOpen={setIsCartOpen} isCartOpen={isCartOpen} />}
     </>
   );
 }
