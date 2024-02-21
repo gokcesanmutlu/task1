@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 const BasketItem = ({ i }) => {
     const { increaseAmount, decreaseAmount, removeProduct } = useContext(BasketContext)
 
+    // !! BUNLARI KOMPLE BASKETCONTEXT'E AL
     const handlePlus = () => {
         increaseAmount(i.id)
         toast.success("Amount was increased.")

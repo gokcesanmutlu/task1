@@ -9,9 +9,8 @@ const Modal = ({ closeModal }) => {
 
   const handleClick = () => {
     addToBasket(selectedProduct)
-    if(!selectedProduct){return}
+    if (!selectedProduct) { return }
     toast.success("Product was added.")
-  
   }
 
   return (
@@ -25,7 +24,7 @@ const Modal = ({ closeModal }) => {
           <p>{selectedProduct ? "$ " + selectedProduct.price : "with Best Price"}</p>
         </div>
         <div className="actions">
-          <button onClick={handleClick} className="history" type="button">{selectedProduct ? "Add to Basket": "Click, For More"}</button>
+          <button onClick={handleClick} className="history" type="button">{selectedProduct ? "Add to Basket" : "Click, For More"}</button>
           {console.log(basket)}
           <button className={`track ${selectedProduct ? "" : "d-none"}`} type="button">Follow the Price</button>
 

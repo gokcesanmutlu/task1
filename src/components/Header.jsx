@@ -10,12 +10,15 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useRef, useState } from "react";
 import { BasketContext } from './../context/basketContext';
 import { ProductContext } from "../context/productContext";
-import { Badge } from 'primereact/badge';
 
 function OffcanvasExample() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { basket, setBasket } = useContext(BasketContext);
+  const { basket } = useContext(BasketContext);
   const { query, setQuery } = useContext(ProductContext)
+
+  var totalürünsayisi = basket.reduce(function (accumulator, currentItem) {
+    return accumulator +  currentItem.amount;
+  }, 0);
 
   const handleChange = (e) => {
     e.preventDefault()
@@ -78,7 +81,7 @@ function OffcanvasExample() {
                     </NavDropdown.Item>
                   </NavDropdown>
                   <button onClick={() => setIsCartOpen(!isCartOpen)} className="ml-2 flex  justify-center items-center gap-2 position-relative"><SlBasket />
-                    <span class="badge position-absolute top-1 start-100 translate-middle rounded-pill bg-danger">{basket.length}</span></button>
+                    <span class="badge position-absolute top-1 start-100 translate-middle rounded-pill bg-danger">{totalürünsayisi}</span></button>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

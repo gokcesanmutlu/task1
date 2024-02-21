@@ -4,10 +4,7 @@ export const BasketContext = createContext()
 
 export function BasketProvider({ children }) {
     const [basket, setBasket] = useState([])
-    // const toast = useRef<Toast>(null);
-    // const show = () => {
-    //     toast.current?.show({ severity: 'info', summary: 'Info', detail: 'Message Content' });
-    // };
+       
     const addToBasket = (product) => {
         const found = basket.find((i) => i.id === product.id);
 

@@ -1,5 +1,5 @@
 
-const ProductCard = ({ product,openModal }) => {
+const ProductCard = ({ product, openModal }) => {
 
   return (
     <div className=" p-4">
