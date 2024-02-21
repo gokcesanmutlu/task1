@@ -9,6 +9,7 @@ const Modal = ({ closeModal }) => {
 
   const handleClick = () => {
     addToBasket(selectedProduct)
+    if(!selectedProduct){return}
     toast.success("Product was added.")
   
   }
@@ -26,7 +27,7 @@ const Modal = ({ closeModal }) => {
         <div className="actions">
           <button onClick={handleClick} className="history" type="button">{selectedProduct ? "Add to Basket": "Click, For More"}</button>
           {console.log(basket)}
-          <button className={`track ${selectedProduct ? "hidden" : ""}`} type="button">Follow the Price</button>
+          <button className={`track ${selectedProduct ? "" : "d-none"}`} type="button">Follow the Price</button>
 
         </div>
       </div>

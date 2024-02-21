@@ -10,6 +10,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useRef, useState } from "react";
 import { BasketContext } from './../context/basketContext';
 import { ProductContext } from "../context/productContext";
+import { Badge } from 'primereact/badge';
 
 function OffcanvasExample() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -60,7 +61,7 @@ function OffcanvasExample() {
                     <Button variant="outline-success" type="submit">Search</Button>
                   </Form>
                   <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/about">About</Nav.Link>
+                  <Nav.Link href="/">About</Nav.Link>
                   <NavDropdown
                     title="Campaigns!"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -76,7 +77,8 @@ function OffcanvasExample() {
                       Campaigns3
                     </NavDropdown.Item>
                   </NavDropdown>
-                 <button onClick={()=>setIsCartOpen(!isCartOpen)} className="ml-2"><SlBasket /></button>
+                  <button onClick={() => setIsCartOpen(!isCartOpen)} className="ml-2 flex  justify-center items-center gap-2 position-relative"><SlBasket />
+                    <span class="badge position-absolute top-1 start-100 translate-middle rounded-pill bg-danger">{basket.length}</span></button>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
