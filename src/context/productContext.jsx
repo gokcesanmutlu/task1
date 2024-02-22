@@ -8,7 +8,7 @@ export function ProductProvider({ children }) {
   const [selectedProduct, setSelectedProduct] = useState()
   const [detailId, setDetailId] = useState(null)
   const [filtred, setFiltred] = useState([])
-  const [query, setQuery]=useState("")
+  const [query, setQuery] = useState("")
 
 
   //Getting all product
@@ -40,9 +40,8 @@ export function ProductProvider({ children }) {
     getSelectedProduct()
   }, [detailId]);
 
-
   return (
-    <ProductContext.Provider value={{query, setQuery,filtred, setFiltred, products, setProducts, selectedProduct, setSelectedProduct, detailId, setDetailId }}>
+    <ProductContext.Provider value={{ query, setQuery, filtred, setFiltred, products, setProducts, selectedProduct, setSelectedProduct, detailId, setDetailId }}>
       {children}
     </ProductContext.Provider>
   )

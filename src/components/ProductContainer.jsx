@@ -3,10 +3,12 @@ import ProductCard from "./ProductCard";
 import Modal from "./Modal"
 import { useContext } from "react";
 import { ProductContext } from "../context/productContext";
+import { useTranslation } from 'react-i18next';
 
 const ProductContainer = () => {
   const [isModelOpen, setIsModalOpen] = useState(true)
   const { query, products, setDetailId, setFiltred, filtred } = useContext(ProductContext);
+  const { t, i18n } = useTranslation();
 
   // filtering product
   useEffect(() => {
@@ -28,7 +30,7 @@ const ProductContainer = () => {
     <>
       <div className="px-32 py-10 product-modal">
         <div >
-          <h3 className="font-semibold text-gray-600">PRODUCT</h3>
+          <h3 className="font-semibold text-gray-600">{t("headerProduct")}</h3>
           <div className="line h-[2px] w-[75px] bg-slate-500 "></div>
           <div className="flex flex-wrap gap-0">
             {filtred?.map((product) => <ProductCard key={product.id} product={product} openModal={openModal} />)}

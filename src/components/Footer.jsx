@@ -1,46 +1,48 @@
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="flex justify-around mt-5 footer">
       <div className="flex flex-col gap-2">
-        <h3 className="footer-title">Services</h3>
+        <h3 className="footer-title">{t("services")}</h3>
         <div
           className="mb-2 footer-line"
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}
         ></div>
-        <a href="#">Email Marketing</a>
-        <a href="#">Campaigns</a>
-        <a href="#">Brandings</a>
-        <a href="#">Offline</a>
+        <a href="#">{t("marketing")}</a>
+        <a href="#">{t("campaigns")}</a>
+        <a href="#">{t("brandings")}</a>
+        <a href="#">{t("offline")}</a>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="footer-title">About</h3>
+        <h3 className="footer-title">{t("about")}</h3>
         <div
           className="mb-2 footer-line"
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}
         ></div>
-        <a href="#">Our Story</a>
-        <a href="#">Benefits</a>
-        <a href="#">Team</a>
-        <a href="#">Careers</a>
+        <a href="#">{t("ourStory")}</a>
+        <a href="#">{t("benefits")}</a>
+        <a href="#">{t("team")}</a>
+        <a href="#">{t("careers")}</a>
       </div>
       <div className="flex flex-col gap-2">
-        <h3 className="footer-title">General</h3>
+        <h3 className="footer-title">{t("general")}</h3>
         <div
           className="mb-2 footer-line"
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}
         ></div>
-        <a href="#">FAQs</a>
-        <a href="#">Contact</a>
-        <a href="#">Security</a>
-        <a href="#">Guarantee</a>
+        <a href="#">{t("faqs")}</a>
+        <a href="#">{t("contact")}</a>
+        <a href="#">{t("security")}</a>
+        <a href="#">{t("guarantee")}</a>
       </div>
       <div className="social">
-        <h3 className="footer-title">Social</h3>
+        <h3 className="footer-title">{t("social")}</h3>
         <div
           className="mb-2 footer-line"
           style={{ width: "17px", height: "2px", backgroundColor: "black" }}

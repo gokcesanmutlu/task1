@@ -1,18 +1,18 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": 5,
       "name": "Lipstick",
       "price": 10,
       "description": "Long-lasting matte lipstick in various shades.",
-      "img": "ürün1.jpg"
+      "img": "ürün6.jpg"
     },
     {
       "id": 2,
       "name": "Foundation",
       "price": 20,
       "description": "Liquid foundation for a flawless complexion.",
-      "img": "ürün2.jpg"
+      "img": "ürün1.jpg"
     },
     {
       "id": 3,
@@ -26,21 +26,21 @@
       "name": "Eyeshadow Palette",
       "price": 25,
       "description": "Palette with a range of eyeshadow colors for versatile looks.",
-      "img": "ürün4.jpg"
+      "img": "ürün5.jpg"
     },
     {
       "id": 5,
       "name": "Concealer",
       "price": 12,
       "description": "Concealer to hide imperfections and dark circles.",
-      "img": "ürün5.jpg"
+      "img": "ürün4.jpg"
     },
     {
       "id": 6,
       "name": "Blush",
       "price": 8,
       "description": "Powder blush for a natural flush of color.",
-      "img": "ürün6.jpg"
+      "img": "ürün2.jpg"
     }
   ]
 }

@@ -4,7 +4,7 @@ export const BasketContext = createContext()
 
 export function BasketProvider({ children }) {
     const [basket, setBasket] = useState([])
-       
+
     const addToBasket = (product) => {
         const found = basket.find((i) => i.id === product.id);
 

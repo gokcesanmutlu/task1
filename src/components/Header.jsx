@@ -10,14 +10,16 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useContext, useRef, useState } from "react";
 import { BasketContext } from './../context/basketContext';
 import { ProductContext } from "../context/productContext";
+import { useTranslation } from 'react-i18next';
 
 function OffcanvasExample() {
+  const { t, i18n } = useTranslation();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { basket } = useContext(BasketContext);
   const { query, setQuery } = useContext(ProductContext)
 
   var totalürünsayisi = basket.reduce(function (accumulator, currentItem) {
-    return accumulator +  currentItem.amount;
+    return accumulator + currentItem.amount;
   }, 0);
 
   const handleChange = (e) => {
@@ -37,7 +39,7 @@ function OffcanvasExample() {
                 src="logoo.jpg"
                 alt=""
               />
-              SupremeShop
+              {t("supremeShop")}
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -56,28 +58,28 @@ function OffcanvasExample() {
                   <Form className="d-flex " style={{ marginRight: "150px" }}>
                     <Form.Control
                       type="search"
-                      placeholder="Search"
+                      placeholder={t("search")}
                       className="me-2"
                       aria-label="Search"
                       onChange={handleChange}
                     />
-                    <Button variant="outline-success" type="submit">Search</Button>
+                    <Button variant="outline-success" type="submit">{t("search")}</Button>
                   </Form>
-                  <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/">About</Nav.Link>
+                  <Nav.Link href="/">{t("home")}</Nav.Link>
+                  <Nav.Link href="/">{t("about")}</Nav.Link>
                   <NavDropdown
-                    title="Campaigns!"
+                    title={t("campaigns")}
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item href="#action3">
-                      Campaigns1
+                      {t("campaign")} 1
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action4">
-                      Campaigns2
+                      {t("campaign")} 2
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item href="#action5">
-                      Campaigns3
+                      {t("campaign")} 3
                     </NavDropdown.Item>
                   </NavDropdown>
                   <button onClick={() => setIsCartOpen(!isCartOpen)} className="ml-2 flex  justify-center items-center gap-2 position-relative"><SlBasket />
